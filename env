@@ -12,8 +12,8 @@ export SUBARCH="arm64"
 export KBUILD_BUILD_USER="Akram"
 export KBUILD_BUILD_HOST="telegram-de"
 
-export defconfig="sdm660_defconfig"
-export configfile="whyred.config"
+export defconfig="vendor/xiaomi/sdm660_defconfig"
+export configfile="vendor/xiaomi/whyred.config"
 
 if [[ -z "$zipper_repo" ]]; then
   export zipper_repo="https://github.com/IaAkram/Anykernel3"
@@ -29,8 +29,8 @@ export zipper="${outside}/zipper"
 
 #
 
-export defconfig_file="${maindir}/arch/${ARCH}/configs/vendor/xiaomi/${defconfig}"
-export configfile_file="${maindir}/arch/${ARCH}/configs/vendor/xiaomi/${configfile}"
+export defconfig_file="${maindir}/arch/${ARCH}/configs/${defconfig}"
+export configfile_file="${maindir}/arch/${ARCH}/configs/${configfile}"
 
 export kernel_head="$(git log --pretty=format:'%h' -1)"
 export kernel_name=$(cat "${defconfig_file}" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
