@@ -20,8 +20,6 @@ pack() {
     git reset --hard origin/${zipper_branch}
   fi
   cp -af "${out_image}" "${zipper}"
-  cp -af "${out_dtb}" "${zipper}/dtb"
-  [ -n "${out_dtbo}" ] && cp -af "${out_dtbo}" "${zipper}/dtbo.img"
   if [ -e ${maindir}/banner_append ]; then
     cat ${maindir}/banner_append >> ${zipper}/banner
     if grep KernelSU ${maindir}/banner_append ; then
@@ -45,7 +43,7 @@ for toolchain in $1; do
   BUILD_START=$(date +"%s")
   export CUR_TOOLCHAIN="${toolchain}"
 
-  bash -x "${outside}/toolchains/${toolchain}.sh" build ${defconfig} || exit 1
+  bash -x "${outside}/toolchains/${toolchain}.sh" build ${defconfig} ${configfile} || exit 1
 
   if [ -e "${out_image}" ]; then
     BUILD_END=$(date +"%s")
