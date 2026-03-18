@@ -3,7 +3,7 @@ export BOT_TOKEN="8521208835:AAFvkn7pvZEDNn7Xoj0sLek-th1sjVpfuxs"
 
 # your telegram chatroom's id
 # in bot api
-export CHAT_ID="6816624504"
+export CHAT_ID="-5236472569"
 
 # your local kernel dir
 export KDIR=kernel
