@@ -9,10 +9,10 @@ export outside="${maindir}/.."
 
 export ARCH="arm64"
 export SUBARCH="arm64"
-export KBUILD_BUILD_USER="zyexro"
+export KBUILD_BUILD_USER="Akram"
 export KBUILD_BUILD_HOST="telegram-de"
 
-export defconfig="blossom_defconfig"
+export defconfig="sdm660_defconfig whyred.config"
 
 if [[ -z "$zipper_repo" ]]; then
   export zipper_repo="https://github.com/zyexro/AnyKernel3"
@@ -21,15 +21,13 @@ if [[ -z "$zipper_branch" ]]; then
   export zipper_branch=blossom
 fi
 
-export out_image="${maindir}/out/arch/${ARCH}/boot/Image.gz"
-export out_dtb="${maindir}/out/arch/${ARCH}/boot/dts/mediatek/mt6765.dtb"
-export out_dtbo="${maindir}/out/arch/${ARCH}/boot/dtbo.img"
+export out_image="${maindir}/out/arch/${ARCH}/boot/Image.gz-dtb"
 
 export zipper="${outside}/zipper"
 
 #
 
-export defconfig_file="${maindir}/arch/${ARCH}/configs/${defconfig}"
+export defconfig_file="${maindir}/arch/${ARCH}/configs/vendor/xiaomi${defconfig}"
 
 export kernel_head="$(git log --pretty=format:'%h' -1)"
 export kernel_name=$(cat "${defconfig_file}" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
